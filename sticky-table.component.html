@@ -1,0 +1,204 @@
+<div>
+    <mat-button-toggle-group #stickyHeaders="matButtonToggleGroup">
+    </mat-button-toggle-group>
+</div>
+
+<div></div>
+
+<div></div>
+<div class="search-icon">
+    <mat-form-field>
+        <svg
+            viewBox="0 0 20 20"
+            height="20"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+            version="1.1"
+        >
+            <path
+                d="M17.545 15.467l-3.779-3.779c0.57-0.935 0.898-2.035 0.898-3.21 
+                0-3.417-2.961-6.377-6.378-6.377s-6.186 2.769-6.186 6.186c0 3.416
+                 2.961 6.377 6.377 6.377 1.137 0 2.2-0.309 3.115-0.844l3.799 
+                 3.801c0.372 0.371 0.975 0.371 1.346 0l0.943-0.943c0.371-0.371
+                  0.236-0.84-0.135-1.211zM4.004 8.287c0-2.366 1.917-4.283 
+                  4.282-4.283s4.474 2.107 4.474 4.474c0 2.365-1.918 4.283-4.283 4.283s-4.473-2.109-4.473-
+                  4.474z"
+            ></path>
+        </svg>
+        <input
+            matInput
+            (keyup)="applyFilter($event)"
+            placeholder="Filtrele..."
+            #input
+        />
+    </mat-form-field>
+</div>
+
+<div class="table-container">
+    <section class="example-container" tabindex="0">
+        <table mat-table [dataSource]="dataSource" matSort>
+            <ng-container matColumnDef="user_name">
+                [sticky]="isSticky(stickyColumns, 'user_name')"
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Users</th>
+                <td mat-cell *matCellDef="let element">
+                    {{ element.user_name }}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="administrators">
+                [sticky]="isSticky(stickyColumns, 'administrators')"
+                <th
+                    mat-header-cell
+                    *matHeaderCellDef
+                    (click)="copyHeader('Administrators')"
+                >
+                    Administrators
+                </th>
+                <td mat-cell *matCellDef="let element">
+                    {{ element.administrators }}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="IT_Edirne">
+                [sticky]="isSticky(stickyColumns, 'IT_Edirne')"
+                <th
+                    mat-header-cell
+                    *matHeaderCellDef
+                    (click)="copyHeader('IT_Edirne')"
+                >
+                    IT_Edirne
+                </th>
+                <td mat-cell *matCellDef="let element">
+                    {{ element.IT_Edirne }}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="MBT_IST_BP_BY">
+                [sticky]="isSticky(stickyColumns, 'MBT_IST_BP_BY')"
+                <th
+                    mat-header-cell
+                    *matHeaderCellDef
+                    (click)="copyHeader('MBT_IST_BP_BY')"
+                >
+                    MBT_IST_BP_BY
+                </th>
+                <td mat-cell *matCellDef="let element">
+                    {{ element.MBT_IST_BP_BY }}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="MBT_AKS_BP_BY">
+                [sticky]="isSticky(stickyColumns, 'MBT_AKS_BP_BY')"
+                <th
+                    mat-header-cell
+                    *matHeaderCellDef
+                    (click)="copyHeader('MBT_AKS_BP_BY')"
+                >
+                    MBT_AKS_BP_BY
+                </th>
+                <td mat-cell *matCellDef="let element">
+                    {{ element.MBT_AKS_BP_BY }}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="MBT_AKS_BP_MY">
+                [sticky]="isSticky(stickyColumns, 'MBT_AKS_BP_MY')"
+                <th
+                    mat-header-cell
+                    *matHeaderCellDef
+                    (click)="copyHeader('MBT_AKS_BP_MY')"
+                >
+                    MBT_AKS_BP_MY
+                </th>
+                <td mat-cell *matCellDef="let element">
+                    {{ element.MBT_AKS_BP_MY }}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="MBT_IST_YON">
+                [sticky]="isSticky(stickyColumns, 'MBT_IST_YON')"
+                <th
+                    mat-header-cell
+                    *matHeaderCellDef
+                    (click)="copyHeader('MBT_IST_YON')"
+                >
+                    MBT_IST_YON
+                </th>
+                <td mat-cell *matCellDef="let element">
+                    {{ element.MBT_IST_YON }}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="MBT_IST_OZL_BRD">
+                [sticky]="isSticky(stickyColumns, 'MBT_IST_OZL_BRD')"
+                <th
+                    mat-header-cell
+                    *matHeaderCellDef
+                    (click)="
+                        copyHeader(
+                            'MBT_IST_OZL_BRD_DHFSJKDKFKLDKDLDLDLDLLDLDLDLDLDLLDLDLDLDLLDLDLDLDLLDLDLDLDLDLDLLDLDLDDLLDLDLDLDLDLLDLDLDLDL'
+                        )
+                    "
+                >
+                    {{
+                        "MBT_IST_OZL_BRD_DHFSJKDKFKLDKDLDLDLDLLDLDLDLDLDLLDLDLDLDLLDLDLDLDLLDLDLDLDLDLDLLDLDLDDLLDLDLDLDLDLLDLDLDLDL"
+                            | truncate : 20
+                    }}
+                </th>
+                <td mat-cell *matCellDef="let element">
+                    {{ element.MBT_IST_OZL_BRD | truncate : 20 }}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="asa">
+                [sticky]="isSticky(stickyColumns, 'asa')"
+                <th
+                    mat-header-cell
+                    *matHeaderCellDef
+                    (click)="copyHeader('asa')"
+                >
+                    asa
+                </th>
+                <td mat-cell *matCellDef="let element">
+                    {{ element.asa }}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="UFUKDRUP">
+                [sticky]="isSticky(stickyColumns, 'UFUKDRUP')"
+                <th
+                    mat-header-cell
+                    *matHeaderCellDef
+                    (click)="copyHeader('UFUKDRUP')"
+                >
+                    UFUKDRUP
+                </th>
+                <td mat-cell *matCellDef="let element">
+                    {{ element.UFUKDRUP }}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="filler">
+                <th mat-header-cell *matHeaderCellDef>Filler header cell</th>
+                <td mat-cell *matCellDef="let element">Filler data cell</td>
+            </ng-container>
+
+            <tr
+                mat-header-row
+                *matHeaderRowDef="
+                    displayedColumns;
+                    sticky: isSticky(stickyHeaders, 'header-1')
+                "
+            ></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+    </section>
+</div>
+<mat-paginator
+    class="mat-paginator-container"
+    [pageSizeOptions]="[5, 10]"
+    [pageSize]="10"
+    showFirstLastButtons
+    aria-label="Select page of periodic elements"
+>
+</mat-paginator>

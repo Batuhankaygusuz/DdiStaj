@@ -1,0 +1,107 @@
+<main>
+    <p class="my-paragraph">Report Board</p>
+</main>
+
+<div style="position: fixed; top: 50px; right: 30px; z-index: 999">
+    <button class="buton1" (click)="downloadTableAsExcel(selectedTabIndex)">
+        <div class="buton1-flex-container">
+            <div class="buton1-icon-container">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="19px"
+                    height="21px"
+                    fill="currentColor"
+                    class="bi bi-file-earmark-bar-graph"
+                    viewBox="0 0 16 16"
+                >
+                    <path
+                        d="M10 13.5a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-6a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v6zm-2.5.5a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1zm-3 0a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-1z"
+                    />
+                    <path
+                        d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"
+                    />
+                </svg>
+            </div>
+            Grup Yetkileri
+        </div>
+    </button>
+
+    <span style="margin-right: 20px"></span>
+    <button class="buton2" (click)="downloadAllTablesAsExcel()">
+        <div class="flex-container">
+            <div class="icon-container">
+                <svg
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xmlns="http://www.w3.org/2000/svg"
+                    version="1.1"
+                    viewBox="0 0 19 21"
+                    height="21px"
+                    width="19px"
+                >
+                    <g
+                        fill-rule="evenodd"
+                        fill="none"
+                        stroke-width="1"
+                        stroke="none"
+                        id="Page-1"
+                    >
+                        <g
+                            transform="translate(-142.000000, -122.000000)"
+                            id="Artboard"
+                        >
+                            <g
+                                transform="translate(142.000000, 122.000000)"
+                                id="Group"
+                            >
+                                <path
+                                    fill="#242a35"
+                                    id="Rectangle-Copy"
+                                    d="M3.4,4 L11.5,4 L11.5,4 L16,8.25 L16,17.6 C16,19.4777681 14.4777681,21 12.6,21 L3.4,21 C1.52223185,21 6.74049485e-16,19.4777681 0,17.6 L0,7.4 C2.14128934e-16,5.52223185 1.52223185,4 3.4,4 Z"
+                                    stroke="#FFFFFF"
+                                ></path>
+                                <path
+                                    fill="#242a35"
+                                    id="Rectangle"
+                                    d="M6.4,0 L12,0 L12,0 L19,6.5 L19,14.6 C19,16.4777681 17.4777681,18 15.6,18 L6.4,18 C4.52223185,18 3,16.4777681 3,14.6 L3,3.4 C3,1.52223185 4.52223185,7.89029623e-16 6.4,0 Z"
+                                    stroke="#FFFFFF"
+                                ></path>
+                                <path
+                                    fill="#FFFFFF"
+                                    id="Path-2"
+                                    d="M12,0 L12,5.5 C12,6.05228475 12.4477153,6.5 13,6.5 L19,6.5 L19,6.5 L12,0 Z"
+                                    stroke="#FFFFFF"
+                                ></path>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+            </div>
+            Tüm Raporları Aktar
+        </div>
+    </button>
+</div>
+<div class="tab-container">
+    <div
+        class="tab"
+        [ngClass]="{ active: activeTab === 'tab1' }"
+        (click)="setActiveTab('tab1')"
+    >
+        Grup Yetkileri
+    </div>
+    <div
+        class="tab"
+        [ngClass]="{ active: activeTab === 'tab2' }"
+        (click)="setActiveTab('tab2')"
+    >
+        Sicil Numarası Bazlı Belge Tipleri
+    </div>
+</div>
+
+<div class="tab-content">
+    <div *ngIf="activeTab === 'tab1'">
+        <app-sticky-table></app-sticky-table>
+    </div>
+    <div *ngIf="activeTab === 'tab2'">
+        <app-table-filter></app-table-filter>
+    </div>
+</div>

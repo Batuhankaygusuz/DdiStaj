@@ -1,0 +1,78 @@
+.my-paragraph {
+    margin-top: 60px;
+    margin-left: 30px;
+    font-size: 40px;
+    font-weight: bold;
+    position: sticky;
+    color: black;
+}
+
+.tab-container {
+    display: flex;
+    margin-top: 70px;
+}
+
+.tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    font-weight: bold;
+    color: black;
+}
+
+.tab.active {
+    border-color: #242a35;
+    font-weight: bold;
+    color: #242a35;
+}
+
+.tab-content {
+    margin-top: 20px;
+}
+
+button:hover {
+    color: #e8e8e8;
+}
+.buton1 {
+    background-color: #c5cdd4;
+    border-radius: 44px;
+    color: #242a35;
+    cursor: pointer;
+    padding: 15px 30px;
+    font-size: 18px;
+    letter-spacing: 1px;
+    border: none;
+    height: 56px;
+}
+
+.buton2 {
+    background-color: #242a35;
+    border-radius: 35px;
+    color: white;
+    cursor: pointer;
+    height: 55px;
+    padding: 15px 30px;
+    font-size: 18px;
+    letter-spacing: 1px;
+    border: none;
+}
+
+.flex-container {
+    display: flex;
+    align-items: center;
+}
+
+.icon-container {
+    margin-right: 15px;
+    width: 10px;
+}
+
+.buton1-flex-container {
+    display: flex;
+    align-items: center;
+}
+
+.buton1-icon-container {
+    margin-right: 15px;
+    width: 12px;
+}
